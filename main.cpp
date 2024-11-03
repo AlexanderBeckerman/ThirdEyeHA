@@ -1,7 +1,9 @@
 #include "gst_saver.h"
 #include <csignal>
 
-GMainLoop *main_loop = nullptr;
+GMainLoop *main_loop =
+    nullptr; // This is bad practice, but I wasn't able to stop the loop and
+             // finalize the last file cleanly without the signal handler.
 
 // Signal handler to stop the main loop on SIGINT (Ctrl+C)
 void handle_signal(int signal) {

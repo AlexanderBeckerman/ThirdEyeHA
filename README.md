@@ -3,9 +3,10 @@
 
 To build and run the program, you need to have GStreamer and CMake installed on your machine.
 
-<h2>Compiling and running </h2>
+<h2>Compiling</h2>
 
-For compiling, I attached a CMakeLists file that will build the project. Compile the project using the following commands:
+I attached a CMakeLists file that will build the project. To build the project you can use the build_project.sh script for Linux or build_project.ps1 script for Windows, those will build the project for you. 
+Alternatively, you can build the project yourself using the following commands:
 
 ~~~~~
 $ mkdir build
@@ -14,7 +15,9 @@ $ cmake ..
 $ cmake --build .
 ~~~~~
 
-This will create a GstSaverApp.exe inside the build/Debug folder on windows or inside build folder on linux. Then run it with the required arguments:
+<h2>Running the program</h2>
+Building the project will create a GstSaverApp(.exe) inside the build/Debug folder on windows or inside build folder on linux. Then cd into the directory and run it with the required command line arguments:
+
 ~~~
 $ ./GstSaverApp.exe <pattern> <bitrate> <frames_per_file>
 ~~~

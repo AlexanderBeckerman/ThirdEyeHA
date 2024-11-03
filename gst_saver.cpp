@@ -151,7 +151,7 @@ void GstSaver::rotate_pipeline() {
         gst_object_unref(muxer);
         gst_element_set_state(pipeline_, GST_STATE_PLAYING);
 
-        // Reset EOS flag for the next rotation
+        // Reset EOS flag for the next rotation.
         std::cout << "Finished rotating to output_" << file_index_ << ".mp4"
                   << std::endl;
         eos_received_ = false;
@@ -166,7 +166,8 @@ void GstSaver::set_output_file() {
     g_object_set(filesink_, "location", file_path.str().c_str(), NULL);
 }
 
-// Calls Write() to count frames.
+/* This gets called on every frame by the probe, which in turn calls Write() to
+ * increment the frame count. */
 GstPadProbeReturn GstSaver::frame_probe_callback(GstPad *pad,
                                                  GstPadProbeInfo *info,
                                                  gpointer user_data) {
